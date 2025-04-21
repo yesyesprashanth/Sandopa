@@ -1,0 +1,2 @@
+# Sandopa
+Samvahana Dosha Pariksha
