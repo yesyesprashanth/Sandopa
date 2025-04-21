@@ -1,0 +1,134 @@
+
+/* LoginForm.css */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+body {
+  overflow-x: hidden;
+}
+.logging {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  url('../assest/screening3.jpeg'); /* Corrected relative path */
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.left-side {
+  flex: 1;
+  max-width: 600px;
+  color: white;
+  padding-right: 2rem;
+}
+
+.left-side h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.left-side p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.right-side {
+  flex: 1;
+  max-width: 400px;
+ 
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.cards-container {
+  background: #ffffff;
+  padding: 2rem 0;
+}
+
+.book-cards {
+  margin-bottom: 3rem;
+}
+
+.book-cards h2 {
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+  font-size: 1.8rem;
+}
+
+.cards-container {
+  background: #ffffff;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.book-cards {
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.card-grid {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0 2rem 1rem;
+  flex-wrap: wrap; /* Changed from nowrap to wrap */
+  width: 100%;
+  /* overflow-x: auto;  Removed to eliminate horizontal scroll */
+}
+
+/* Card sizing adjustments */
+.book-card, .video-card {
+  flex: 0 0 280px; /* Fixed width, no grow/shrink */
+  width: 280px;
+  transition: transform 0.3s ease;
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Optional: Force scrollbar visibility */
+.card-grid {
+
+  -ms-overflow-style: auto;
+}
+
+
+
+
+
+.book-card, .video-card {
+  flex: 0 0 auto;
+  width: 280px;
+  transition: transform 0.3s ease;
+}
+
+.book-card:hover, .video-card:hover {
+  transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+  .logging {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+
+  .left-side {
+    padding-right: 0;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .right-side {
+    max-width: 100%;
+  }
+
+  .card-grid {
+    padding: 0 1rem 1rem;
+  }
+}

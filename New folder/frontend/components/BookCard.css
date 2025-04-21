@@ -1,0 +1,68 @@
+/* Container for Book Cards (if used externally) */
+.book-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Individual Book Card */
+.book-card {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(235, 199, 199, 0.1);
+  transition: transform 0.3s ease;
+}
+
+
+/* Book Cover Image */
+.book-cover {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Book Info Section */
+.book-info {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Book Title */
+.book-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Read Button */
+.info-button {
+  background-color: #007bff; /* Blue tone for book action */
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.info-button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .book-card {
+    width: 90%;
+  }
+}

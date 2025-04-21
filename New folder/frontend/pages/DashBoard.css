@@ -1,0 +1,43 @@
+.custom-overview {
+  display: flex;
+  flex-direction: column; /* Stack containers vertically */
+  width: 100%;
+  min-height: 100vh; /* Use min-height to allow for content growth */
+  background-color: #e9ecef; /* Optional background for contrast */
+  padding: 20px;
+}
+
+
+.custom-navigation-buttons {
+  width: 93%;
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column; /* Stacks cards vertically */
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* Space between cards */
+  position: relative;
+  padding: 20px;
+}
+
+
+/* If you want a responsive design that changes layout based on screen width */
+@media screen and (max-width: 768px) {
+  .custom-navigation-buttons {
+    flex-direction: column; /* Stack cards vertically on smaller screens */
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .custom-overview {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  .custom-card {
+    width: 90%;
+    height: auto;
+    padding: 15px;
+  }
+}

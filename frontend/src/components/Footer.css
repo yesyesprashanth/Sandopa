@@ -1,0 +1,74 @@
+/* General Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure the main content fills available space */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Sticky Footer */
+.footer {
+  background-color: #2f4046;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  box-sizing: border-box;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+
+}
+
+/* Footer Text */
+.footer p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Social Links */
+.social-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 10px 0 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.social-links li {
+  margin: 0;
+}
+
+.social-links li a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.social-links li a:hover {
+  color: #ffcc00;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .social-links {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .footer p {
+    font-size: 12px;
+  }
+}

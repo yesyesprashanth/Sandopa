@@ -1,0 +1,80 @@
+/* Video Grid */
+.video-grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 videos per row */
+  gap: 20px;
+  justify-items: center;
+}
+
+.video-item-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 200px;
+  height: 250px; /* Adjusted height for video cards */
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.video-item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.video-element {
+  width: 100%;
+  height: 180px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+.video-item-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 5px 0;
+  color: #34495e;
+}
+
+/* Hover Effect for Videos */
+.video-item-card:hover .video-item-title {
+  color: #2ecc71;  /* Matching the book card hover effect */
+}
+
+/* Active Video Card Animation - Reuses the same animation */
+.video-item-card.active {
+  animation: highlightAnimation 0.8s ease;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .video-grid-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 videos per row on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .video-grid-container {
+    grid-template-columns: 1fr; /* 1 video per row on very small screens */
+  }
+}
+
+/* Existing animations from book cards are reused */
+@keyframes highlightAnimation {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+}

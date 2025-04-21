@@ -1,0 +1,73 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3016:3016"
+    depends_on:
+      - user-service
+      - material-service
+    environment:
+      - PORT=3016
+      - REACT_APP_USER_URL=http://localhost:3017/api/v1
+
+  user-service:
+    build: 
+      context: ./user-service
+      dockerfile: Dockerfile
+    ports:
+      - "3017:3017"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+      - SECRET_KEY=your_secret_key
+      - PORT=3017
+    volumes:
+      - ./user-service:/app
+
+  material-service:
+    build:
+      context: ./material-service
+      dockerfile: Dockerfile
+    ports:
+      - "3018:3018"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+      - PORT=3018
+    volumes:
+      - ./material-service:/app
+
+  screening-service:
+    build:
+      context: ./screening-service
+      dockerfile: Dockerfile
+    ports:
+      - "3019:3019"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+      - PORT=3019
+    volumes:
+      - ./screening-service:/app
+
+  db:
+    image: postgres:14
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    environment:
+      - POSTGRES_USER=k3sadm
+      - POSTGRES_PASSWORD=jss1234
+      - POSTGRES_DB=earlyspark
+      - POSTGRES_HOST=localhost
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
